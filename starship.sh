@@ -1,20 +1,5 @@
-# sudo apt install zsh -y
-
-# 命令是否存在
-command_exists() {
-  command -v "$@" >/dev/null 2>&1
-}
-
-# 添加字符串到文件, 文件内字符串已存在不添加
-append_sting_to_file() {
-  file=$1
-  string=$2
-  if [ -f "$file" ] ; then
-    if ! grep -Fxq "$string" "$file"; then
-      echo "$string" >> "$file"
-    fi
-  fi
-}
+script_dir=$(dirname "$0")
+source "$script_dir/utils.sh"
 
 if ! command_exists zsh; then
   echo "install zsh" 

@@ -1,12 +1,5 @@
-append_sting_to_file() {
-  file=$1
-  string=$2
-  if [ -f "$file" ] ; then
-    if ! grep -Fxq "$string" "$file"; then
-      echo "$string" >> "$file"
-    fi
-  fi
-}
+script_dir=$(dirname "$0")
+source "$script_dir/utils.sh"
 
 timedatectl set-timezone Asia/Shanghai
 

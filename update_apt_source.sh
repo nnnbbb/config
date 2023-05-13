@@ -1,14 +1,6 @@
 #!/bin/bash
-RED='\033[0;31m'
-GREEN='\033[0;32m'  # Green
-NC='\033[0m'        # No Color
-
-red() {
-  echo -e "${RED}${1}${NC}"
-}
-green() {
-  echo -e "${GREEN}${1}${NC}"
-}
+script_dir=$(dirname "$0")
+source "$script_dir/utils.sh"
 
 SYSTEM_NAME=`lsb_release -is`
 SYSTEM_VERSION=`lsb_release -cs`
