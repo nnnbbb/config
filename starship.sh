@@ -20,10 +20,13 @@ if ! command_exists starship; then
   echo "install starship" 
   if ! [ -e "starship_install.sh" ]; then
     curl -o starship_install.sh -sS https://starship.rs/install.sh
+    sed -i "s/https:\/\/github.com/https:\/\/ghproxy.com\/https:\/\/github.com/g" starship_install.sh && sudo sh starship_install.sh
   fi
-  sed -i "s/https:\/\/github.com/https:\/\/ghproxy.com\/https:\/\/github.com/g" starship_install.sh && sudo sh starship_install.sh
-  append_sting_to_file  ~/.zshrc 'eval "$(starship init zsh)"'
-  mkdir -p ~/.config && touch ~/.config/starship.toml
+  append_sting_to_file  'eval "$(starship init zsh)"' ~/.zshrc 
+    
+  if ! [ -f "~/.config/starship.toml" ]; then
+    mkdir -p ~/.config && cp starship.toml ~/.config/starship.toml
+  fi
 else
  	echo "starship is installed"
 fi

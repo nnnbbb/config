@@ -16,8 +16,8 @@ command_exists() {
 
 # 添加字符串到文件, 文件内字符串已存在不添加
 append_sting_to_file() {
-  file=$1
-  string=$2
+  string=$1
+  file=$2
   if [ -f "$file" ] ; then
     if ! grep -Fxq "$string" "$file"; then
       echo "$string" >> "$file"
