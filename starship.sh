@@ -12,6 +12,8 @@ fi
 if ! [ -d ~/.oh-my-zsh ]; then
  	echo "oh-my-zsh is not installed"
   sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)"
+  # oh-my-zsh disabled update
+  append_sting_to_file "zstyle ':omz:update' mode disabled" ~/.zshrc
 else
 	echo "oh-my-zsh is installed"
 fi
