@@ -1,0 +1,9 @@
+
+eval "$(starship init zsh)"
+export https_proxy=http://127.0.0.1:1080 http_proxy=http://127.0.0.1:1080 all_proxy=socks5://127.0.0.1:1080
+plugins=(git history history-substring-search node npm last-working-dir zsh-autosuggestions)
+
+chmod 700 /root
+chmod 600 /root/.ssh/authorized_keys
+export LANG=C.UTF-8
+export LC_ALL=C.UTF-8
