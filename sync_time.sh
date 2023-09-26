@@ -4,6 +4,6 @@ echo $status_code
 
 if [ "$status_code" == "200" ]; then
   echo "case"
-  cd /home && date -s "$(wget -S  "http://www.baidu.com/" 2>&1 | grep -E '^[[:space:]]*[dD]ate:' | sed 's/^[[:space:]]*[dD]ate:[[:space:]]*//' | head -1l | awk '{print $1, $3, $2,  $5 ,"GMT", $4 }' | sed 's/,//')" && rm index.html
+  date -s "$(wget --method=HEAD -qSO- --max-redirect=0 baidu.com 2>&1 | sed -n 's/^ *Date: *//p')"
 fi
 
